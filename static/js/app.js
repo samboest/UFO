@@ -58,12 +58,11 @@ function updateFilters() {
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    Object.values(filters).forEach([key, val]) => {
-      filteredData = filteredData.filter()
-    };
+    Object.entries(filters).forEach(([key, val]) => {
+      filteredData = filteredData.filter(row => row[key] === val)
+    });
 
-  
-  
+
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);
   }
